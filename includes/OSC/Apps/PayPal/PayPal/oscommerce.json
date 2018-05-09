@@ -1,0 +1,53 @@
+{
+	"title":	"PayPal App",
+	"app":		"PayPal",
+	"vendor":	"PayPal",
+	"version":	"5.0.0",
+	"req_core_version":	"2.4",
+	"license":	"MIT",
+	"authors": [
+		{
+			"name":		"Harald Ponce de Leon",
+			"company":	"osCommerce",
+			"email":	"hpdl@oscommerce.com",
+			"website":	"https://www.oscommerce.com"
+		}
+	],
+	"modules": {
+		"AdminDashboard": {
+			"PayPal":	"Module\\Admin\\Dashboard\\PayPal"
+		},
+		"AdminMenu": {
+			"PayPal":	"Module\\Admin\\Menu\\PayPal"
+		},
+		"Payment": {
+			"DP":	"Module\\Payment\\DP",
+			"EC":	"Module\\Payment\\EC",
+			"HS":	"Module\\Payment\\HS",
+			"PS":	"Module\\Payment\\PS"
+		},
+		"Content": {
+			"login": {
+				"LOGIN":	"Module\\Content\\LOGIN"
+			}
+		},
+		"Hooks": {
+			"Admin/Orders": {
+				"Action":	"Module\\Hooks\\Admin\\Orders\\Action",
+				"Page":		"Module\\Hooks\\Admin\\Orders\\PageTab"
+			},
+			"Shop/Account": {
+				"Logout":	"Module\\Hooks\\Shop\\Account\\Logout"
+			}
+		}
+	},
+	"routes": {
+		"Admin":	"Sites\\Admin\\Pages\\Home",
+		"Shop": {
+			"order&callback&paypal&ec":	"Sites\\Shop\\Pages\\EC",
+			"order&paypal&checkout&hs":	"Sites\\Shop\\Pages\\HS",
+			"order&ipn&paypal&ps":		"Sites\\Shop\\Pages\\PS",
+			"order&ipn&paypal&hs":		"Sites\\Shop\\Pages\\HS"
+		}
+	}
+}
